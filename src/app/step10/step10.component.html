@@ -1,0 +1,92 @@
+<h1 class="text-center">Last Step</h1>
+
+<form [formGroup]="step10Form" (ngSubmit)="submitStep10()">
+    <div class="row">
+        <div class="col-md-6 text-left center-block">
+            <div class="form-group" ngbRadioGroup>
+                <h5>Active or previous U.S. military service?</h5>
+                <label ngbButtonLabel class="normal-radio">
+                    <input type="radio" formControlName="military" value="yes" ngbButton> Yes
+                </label>
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                <label ngbButtonLabel class="normal-radio">
+                    <input type="radio" formControlName="military" value="no" ngbButton> No
+                </label>
+            </div>
+            
+            <div class="form-group" ngbRadioGroup>
+                <h5>Are you or your spouse currently in a VA loan?</h5>
+                <label ngbButtonLabel class="normal-radio">
+                    <input type="radio" formControlName="Use_VA_Loans" value="yes" ngbButton> Yes
+                </label>
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                <label ngbButtonLabel class="normal-radio">
+                    <input type="radio" formControlName="Use_VA_Loans" value="no" ngbButton> No
+                </label>
+            </div>
+            
+            <div class="form-group">
+                <h5>First Name</h5>
+                {{firstName}}
+            </div>
+            
+            <div class="form-group">
+                <h5>Last Name</h5>
+                {{lastName}}
+            </div>
+
+            <div class="form-group">
+                <h5>Email Address</h5>
+                {{emailAddress}}
+            </div>
+            
+            <div class="form-group">
+                <h5>Phone Number</h5>
+                {{phoneNumber}}
+            </div>
+
+            <div class="form-group">
+                <h5>Current Mailing Address</h5>
+                <h6>Street</h6>
+                {{streetAddress}}
+            </div>
+            
+            <div class="form-group">
+                <h6>City / State</h6>
+                {{cityState}}
+            </div>
+            
+            <div class="form-group">
+                <h6>ZIP Code</h6>
+                {{zipCode}}
+            </div>
+            
+            
+            
+        </div>
+        <div class="col-md-12 text-center">
+            
+            <p>
+                <button class="btn" *ngIf="loading">
+                    <div class="spinner-border text-warning" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </button>
+                <button class="btn btn-danger btn-sm  submit-btn" type="submit">
+                    Submit
+                </button>
+            </p>
+
+            <p>
+                <button class="btn btn-sm  submit-btn" type="button" (click)="gotoStep9()">Go Back</button>
+            </p>
+            
+        </div>
+    </div>
+</form>

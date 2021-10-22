@@ -1,0 +1,45 @@
+<div class="col-md-12">
+    <h4 class="text-center">Providing Affordable Mortgages and Award-Winning Client Service for More than 30 Years</h4>
+    <ngb-progressbar 
+        [max]="100" 
+        [striped]="true" 
+        [animated]="true" 
+        height="30px" 
+        [value]="percentageComplete">
+    </ngb-progressbar>
+
+    <h4 class="text-center progress-percentage">
+        <strong>
+            <i>{{ percentageComplete }}%</i>
+        </strong>
+    </h4>
+    
+    <app-step1 (gotoStepEvent)="stepEventHandler($event)" *ngIf="currentStep === 1"></app-step1>
+
+    <app-step2 (gotoStepEvent)="stepEventHandler($event)" *ngIf="currentStep === 2"></app-step2>
+
+    <app-step3 (gotoStepEvent)="stepEventHandler($event)" *ngIf="currentStep === 3"></app-step3>
+
+    <app-step4 (gotoStepEvent)="stepEventHandler($event)" *ngIf="currentStep === 4"></app-step4>
+
+    <app-step5 (gotoStepEvent)="stepEventHandler($event)" *ngIf="currentStep === 5"></app-step5>
+
+    <app-step6 (gotoStepEvent)="stepEventHandler($event)" *ngIf="currentStep === 6"></app-step6>
+
+    <app-step7 (gotoStepEvent)="stepEventHandler($event)" *ngIf="currentStep === 7"></app-step7>
+
+    <app-step8 (gotoStepEvent)="stepEventHandler($event)" *ngIf="currentStep === 8 && typeOfLoan === 'home_refinance'"></app-step8>
+
+    <app-step8-purchase (gotoStepEvent)="stepEventHandler($event)" *ngIf="currentStep === 8 && typeOfLoan === 'home_purchase'"></app-step8-purchase>
+
+    <app-step9 (gotoStepEvent)="stepEventHandler($event)" *ngIf="currentStep === 9 && typeOfLoan === 'home_refinance'"></app-step9>
+
+    <app-step9-purchase (gotoStepEvent)="stepEventHandler($event)" *ngIf="currentStep === 9 && typeOfLoan === 'home_purchase'"></app-step9-purchase>
+
+    <app-step10 (gotoStepEvent)="stepEventHandler($event)" *ngIf="currentStep === 10 && typeOfLoan === 'home_refinance'"></app-step10>
+
+    <app-step10-purchase (gotoStepEvent)="stepEventHandler($event)" *ngIf="currentStep === 10 && typeOfLoan === 'home_purchase'"></app-step10-purchase>
+
+    <app-step11 (gotoStepEvent)="stepEventHandler($event)" *ngIf="currentStep === 11"></app-step11>
+
+</div>

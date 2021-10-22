@@ -1,0 +1,54 @@
+<form [formGroup]="step7Form" (ngSubmit)="submitStep7()">
+    <div class="row">
+        <div class="col-md-6 text-center center-block">
+            <div class="form-group">
+                <h5>Email Address</h5>
+                <input type="text" class="form-control" formControlName="email_address"
+                    [class.is-invalid]="(formControl.email_address.touched || submitted) && (formControl.email_address.errors?.required || formControl.email_address.errors?.email)"
+                >
+                <small 
+                    class="text-danger" 
+                    *ngIf="(formControl.email_address.touched || submitted) && formControl.email_address.errors?.required"
+                >Please enter your email address.
+                </small>
+
+                <small 
+                    class="text-danger" 
+                    *ngIf="(formControl.email_address.touched || submitted) && formControl.email_address.errors?.email"
+                >Please enter your email address using the format email@example.com.
+                </small>
+            </div>
+            
+            <div class="form-group">
+                <h5>Phone Number</h5>
+                <input type="text" class="form-control" formControlName="phone_number"
+                    [class.is-invalid]="(formControl.phone_number.touched || submitted) && (formControl.phone_number.errors?.required || formControl.phone_number.errors?.phone)"
+                >
+                <small 
+                    class="text-danger" 
+                    *ngIf="(formControl.phone_number.touched || submitted) && formControl.phone_number.errors?.required"
+                >Please enter your phone number.
+                </small>
+                <small 
+                    class="text-danger" 
+                    *ngIf="(formControl.phone_number.touched || submitted) && formControl.phone_number.errors?.phone"
+                >Please enter a phone number using the format XXX-XXX-XXXX.
+                </small>
+            </div>
+            
+        </div>
+        <div class="col-md-12 text-center">
+            <p>
+                <button class="btn" *ngIf="loading"> 
+                    <div class="spinner-border text-warning" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </button>
+                <button class="btn btn-danger btn-sm  submit-btn" type="submit">Next</button>
+            </p>
+            <p>
+                <button class="btn btn-sm  submit-btn" type="button" (click)="gotoStep6()">Go Back</button>
+            </p>
+        </div>
+    </div>
+</form>

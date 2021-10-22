@@ -1,0 +1,127 @@
+<h1 class="text-center">One Step Left</h1>
+
+<form [formGroup]="step9Form" (ngSubmit)="submitStep9()">
+    <div class="row">
+        <div class="col-md-6 text-left center-block">
+            <div class="form-group">
+                <h5>Employment status</h5>
+                <select class="form-control" formControlName="employment_status"
+                    [class.is-invalid]="(formControl.employment_status.touched || submitted) && formControl.employment_status.errors?.required"
+                >
+                    <option value="">Select One</option>
+                    <option value="employed">Employed</option>
+                    <option value="selfEmployed">Self-Employed</option>
+                    <option value="retired">Retired</option>
+                    <option value="notEmployed">Not Employed</option>
+                </select>
+                <small 
+                    class="text-danger" 
+                    *ngIf="(formControl.employment_status.touched || submitted) && formControl.employment_status.errors?.required"
+                >Please choose one.
+                </small>
+            </div>
+            
+            <div class="form-group">
+                <h5>Number of late mortgage payments in the past 12 months?</h5>
+                <select class="form-control" formControlName="late_payments"
+                    [class.is-invalid]="(formControl.late_payments.touched || submitted) && formControl.late_payments.errors?.required"
+                >
+                    <option value="0">None</option>
+                    <option value="1">1</option>
+                    <option value="2">2+</option>
+                </select>
+                <small 
+                    class="text-danger" 
+                    *ngIf="(formControl.late_payments.touched || submitted) && formControl.late_payments.errors?.required"
+                >Please choose one.
+                </small>
+            </div>
+            
+            <div class="form-group" ngbRadioGroup>
+                <h5>Any bankruptcy in the past 3 years?</h5>
+                <label ngbButtonLabel class="normal-radio">
+                    <input type="radio" formControlName="bankruptcy" value="yes" ngbButton> Yes
+                </label>
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                <label ngbButtonLabel class="normal-radio">
+                    <input type="radio" formControlName="bankruptcy" value="no" ngbButton> No
+                </label>
+            </div>
+            
+            <div class="form-group" ngbRadioGroup>
+                <h5>Any foreclosure in the past 3 years?</h5>
+                <label ngbButtonLabel class="normal-radio">
+                    <input type="radio" formControlName="foreclosure" value="yes" ngbButton> Yes
+                </label>
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                <label ngbButtonLabel class="normal-radio">
+                    <input type="radio" formControlName="foreclosure" value="no" ngbButton> No
+                </label>
+            </div>
+            
+            <div class="form-group" ngbRadioGroup>
+                <h5>Can you show proof of your income?</h5>
+                <label ngbButtonLabel class="normal-radio">
+                    <input type="radio" formControlName="proof_of_income" value="yes" ngbButton> Yes
+                </label>
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                <label ngbButtonLabel class="normal-radio">
+                    <input type="radio" formControlName="proof_of_income" value="no" ngbButton> No
+                </label>
+            </div>
+            
+            <div class="form-group">
+                <h5>Current Mailing Address</h5>
+                <h6>Street</h6>
+                <input type="text" class="form-control" formControlName="mailing_address"
+                    [class.is-invalid]="(formControl.mailing_address.touched || submitted) && formControl.mailing_address.errors?.required"
+                >
+                <small 
+                    class="text-danger" 
+                    *ngIf="(formControl.mailing_address.touched || submitted) && formControl.mailing_address.errors?.required"
+                >Please enter your mailing address.
+                </small>
+            </div>
+
+            <div class="form-group">
+                <h6>City / State</h6>
+                <input type="text" class="form-control" formControlName="city_state"
+                    [class.is-invalid]="(formControl.city_state.touched || submitted) && formControl.city_state.errors?.required"
+                >
+                <small 
+                    class="text-danger" 
+                    *ngIf="(formControl.city_state.touched || submitted) && formControl.city_state.errors?.required"
+                >Please enter your City / State.
+                </small>
+            </div>
+            
+            <div class="form-group">
+                <h6>ZIP Code</h6>
+                {{zipCode}}
+            </div>
+
+            <div class="form-group">
+                <h6>Email Address</h6>
+                {{emailAddress}}
+            </div>
+            
+        </div>
+        <div class="col-md-12 text-center">
+            <p>
+                <button class="btn btn-danger btn-sm  submit-btn" type="submit">Next</button>
+            </p>
+            <p>
+                <button class="btn btn-sm  submit-btn" type="button" (click)="gotoStep8()">Go Back</button>
+            </p>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,246 @@
+<form [formGroup]="step8Form" (ngSubmit)="submitStep8()">
+    <div class="row">
+        <div class="col-md-6 text-left center-block">
+            <div class="form-group">
+                <h5>ZIP Code</h5>
+                <input 
+                    type="text" 
+                    class="form-control" 
+                    formControlName="zip_code" 
+                    [class.is-invalid]="(formControl.zip_code.touched || submitted) && formControl.zip_code.errors?.required"
+                >
+                <small 
+                    class="text-danger" 
+                    *ngIf="(formControl.zip_code.touched || submitted) && formControl.zip_code.errors?.required"
+                >Please enter your ZIP code.
+                </small>
+                
+                <small 
+                    class="text-danger" 
+                    *ngIf="(formControl.zip_code.touched || submitted) && formControl.zip_code.errors?.invalid"
+                >Please re-enter your zip code. Note: We serve every zip code in the U.S. (unless directly within a military base).
+                </small>
+            </div>
+            
+            <div class="form-group" ngbRadioGroup>
+                <h5>Are you a first-time home buyer?</h5>
+                <label ngbButtonLabel class="normal-radio">
+                    <input type="radio" formControlName="first_time_buyer" value="yes" ngbButton> Yes
+                </label>
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                <label ngbButtonLabel class="normal-radio">
+                    <input type="radio" formControlName="first_time_buyer" value="no" ngbButton> No
+                </label>
+            </div>
+            
+            <div class="form-group">
+                <h5>When Do You Plan to Purchase</h5>
+                <select class="form-control" formControlName="loan_purpose_purchase"
+                    [class.is-invalid]="(formControl.loan_purpose_purchase.touched || submitted) && formControl.loan_purpose_purchase.errors?.required"
+                >
+                    <option value="">Select One</option>
+                    <option value="Signed a Purchase Agreement">Immediately: Signed a Purchase Agreement</option>
+                    <option value="Offer Pending / Found a House">ASAP: Found a House/Offer Pending</option>
+                    <option value="Buying in 30 Days">Within 30 Days</option>
+                    <option value="Buying in 2 to 3 Months">2 - 3 Months</option>
+                    <option value="Buying in 3 to 6 Months">3 - 6 Months</option>
+                    <option value="Buying in 6+ Months">6+ Months</option>
+                    <option value="Researching Options">No Time Frame; I am Researching Options</option>
+                </select>
+                <small 
+                    class="text-danger" 
+                    *ngIf="(formControl.loan_purpose_purchase.touched || submitted) && formControl.loan_purpose_purchase.errors?.required"
+                >Please choose one.
+                </small>
+            </div>
+            
+            <div class="form-group" *ngIf="propertyUse">
+                <h5>Home will be used for</h5>
+                {{ humanKeyMapper(propertyUse) | titlecase}}
+            </div>
+            
+            <div class="form-group">
+                <h5>Purchase price of the new home</h5>
+                <select class="form-control" formControlName="purchase_price"
+                    [class.is-invalid]="(formControl.purchase_price.touched || submitted) && formControl.purchase_price.errors?.required"
+                >
+                    <option value="">Select One</option>
+                    <option value="50000">50,000 – 60,000</option>
+                    <option value="60001">60,001 – 70,000</option>
+                    <option value="70001">70,001 – 80,000</option>
+                    <option value="80001">80,001 – 90,000</option>
+                    <option value="90001">90,001 – 100,000</option>
+                    <option value="100001">100,001 – 110,000</option>
+                    <option value="110001">110,001 – 120,000</option>
+                    <option value="120001">120,001 – 130,000</option>
+                    <option value="130001">130,001 – 140,000</option>
+                    <option value="140001">140,001 – 150,000</option>
+                    <option value="150001">150,001 – 160,000</option>
+                    <option value="160001">160,001 – 170,000</option>
+                    <option value="170001">170,001 – 180,000</option>
+                    <option value="180001">180,001 – 190,000</option>
+                    <option value="190001">190,001 – 200,000</option>
+                    <option value="200001">200,001 – 210,000</option>
+                    <option value="210001">210,001 – 220,000</option>
+                    <option value="220001">220,001 – 230,000</option>
+                    <option value="230001">230,001 – 240,000</option>
+                    <option value="240001">240,001 – 250,000</option>
+                    <option value="250001">250,001 – 260,000</option>
+                    <option value="260001">260,001 – 270,000</option>
+                    <option value="270001">270,001 – 280,000</option>
+                    <option value="280001">280,001 – 290,000</option>
+                    <option value="290001">290,001 – 300,000</option>
+                    <option value="300001">300,001 – 310,000</option>
+                    <option value="310001">310,001 – 320,000</option>
+                    <option value="320001">320,001 – 330,000</option>
+                    <option value="330001">330,001 – 340,000</option>
+                    <option value="340001">340,001 – 350,000</option>
+                    <option value="350001">350,001 – 360,000</option>
+                    <option value="360001">360,001 – 370,000</option>
+                    <option value="370001">370,001 – 380,000</option>
+                    <option value="380001">380,001 – 390,000</option>
+                    <option value="390001">390,001 – 400,000</option>
+                    <option value="400001">400,001 – 450,000</option>
+                    <option value="450001">450,001 – 500,000</option>
+                    <option value="500001">500,001 – 550,000</option>
+                    <option value="550001">550,001 – 600,000</option>
+                    <option value="600001">600,001 – 650,000</option>
+                    <option value="650001">650,001 – 700,000</option>
+                    <option value="700001">700,001 – 750,000</option>
+                    <option value="750001">750,001 – 800,000</option>
+                    <option value="800001">800,001 – 850,000</option>
+                    <option value="850001">850,001 – 900,000</option>
+                    <option value="900001">900,001 – 950,000</option>
+                    <option value="950001">950,001 – 1,000,000</option>
+                    <option value="1000001">1,000,001 – 1,200,000</option>
+                    <option value="1200001">1,200,001 – 1,400,000</option>
+                    <option value="1400001">1,400,001 – 1,600,000</option>
+                    <option value="1600001">1,600,001 – 1,800,000</option>
+                    <option value="1800001">1,800,001 – 2,000,000</option>
+                    <option value="2000001">2,000,001 – 2,200,000</option>
+                    <option value="2200001">2,200,001 – 2,400,000</option>
+                    <option value="2400001">2,400,001 – 2,600,000</option>
+                    <option value="2600001">2,600,001 – 2,800,000</option>
+                    <option value="2800001">2,800,001 – 3,000,000</option>
+                    <option value="3000001">3,000,001 – 3,200,000</option>
+                    <option value="3200001">3,200,001 – 3,400,000</option>
+                    <option value="3400001">3,400,001 – 3,600,000</option>
+                    <option value="3600001">3,600,001 – 3,800,000</option>
+                    <option value="3800001">3,800,001 – 4,000,000</option>
+                    <option value="4000001">4,000,001 – 4,200,000</option>
+                    <option value="4200001">4,200,001 – 4,400,000</option>
+                    <option value="4400001">4,400,001 – 4,600,000</option>
+                    <option value="4600001">4,600,001 – 4,800,000</option>
+                    <option value="4800001">4,800,001 – 5,000,000</option>
+                    <option value="5000001">5,000,001 – 5,200,000</option>
+                    <option value="5200001">5,200,001 – 5,400,000</option>
+                    <option value="5400001">5,400,001 – 5,600,000</option>
+                    <option value="5600001">5,600,001 – 5,800,000</option>
+                    <option value="5800001">5,800,001 – 6,000,000</option>
+                    <option value="6000001">6,000,001 – 6,200,000</option>
+                    <option value="6200001">6,200,001 – 6,400,000</option>
+                    <option value="6400001">6,400,001 – 6,600,000</option>
+                    <option value="6600001">6,600,001 – 6,800,000</option>
+                    <option value="6800001">6,800,001 – 7,000,000</option>
+                    <option value="7000001">7,000,001+</option>
+                </select>
+                <small 
+                    class="text-danger" 
+                    *ngIf="(formControl.purchase_price.touched || submitted) && formControl.purchase_price.errors?.required"
+                >Please choose one.
+                </small>
+            </div>
+            
+            <div class="form-group">
+                <h5>Estimated Down Payment</h5>
+                <select class="form-control" formControlName="down_payment"
+                    [class.is-invalid]="(formControl.down_payment.touched || submitted) && formControl.down_payment.errors?.required"
+                >
+                    <option value="">Select One</option>
+                    <option value="0">0</option>
+                    <option value="10000">1,000 – 10,000</option>
+                    <option value="20000">10,001 – 20,000</option>
+                    <option value="30000">20,001 – 30,000</option>
+                    <option value="40000">30,001 – 40,000</option>
+                    <option value="50000">40,001 – 50,000</option>
+                    <option value="60000">50,001 – 60,000</option>
+                    <option value="70000">60,001 – 70,000</option>
+                    <option value="80000">70,001 – 80,000</option>
+                    <option value="90000">80,001 – 90,000</option>
+                    <option value="100000">90,001 – 100,000</option>
+                    <option value="110000">100,001 – 110,000</option>
+                    <option value="120000">110,001 – 120,000</option>
+                    <option value="130000">120,001 – 130,000</option>
+                    <option value="140000">130,001 – 140,000</option>
+                    <option value="150000">140,001 – 150,000</option>
+                    <option value="160000">150,001 – 160,000</option>
+                    <option value="170000">160,001 – 170,000</option>
+                    <option value="180000">170,001 – 180,000</option>
+                    <option value="190000">180,001 – 190,000</option>
+                    <option value="200000">190,001 – 200,000</option>
+                    <option value="210000">200,001 – 210,000</option>
+                    <option value="220000">210,001 – 220,000</option>
+                    <option value="230000">220,001 – 230,000</option>
+                    <option value="240000">230,001 – 240,000</option>
+                    <option value="250000">240,001 – 250,000</option>
+                    <option value="300000">250,001 – 300,000</option>
+                    <option value="400000">300,001 – 400,000</option>
+                    <option value="500000">400,001 – 500,000</option>
+                    <option value="600000">500,001 – 600,000</option>
+                    <option value="700000">600,001 – 700,000</option>
+                    <option value="800000">700,001 – 800,000</option>
+                    <option value="900000">800,001 – 900,000</option>
+                    <option value="1000000">900,001 – 1,000,000</option>
+                    <option value="1200000">1,000,001 – 1,200,000</option>
+                    <option value="1400000">1,200,001 – 1,400,000</option>
+                    <option value="1600000">1,400,001 – 1,600,000</option>
+                    <option value="1800000">1,600,001 – 1,800,000</option>
+                    <option value="2000000">1,800,001 – 2,000,000</option>
+                    <option value="2200000">2,000,001 – 2,200,000</option>
+                    <option value="2400000">2,200,001 – 2,400,000</option>
+                    <option value="2600000">2,400,001 – 2,600,000</option>
+                    <option value="2800000">2,600,001 – 2,800,000</option>
+                    <option value="3000000">2,800,001 – 3,000,000</option>
+                    <option value="3200000">3,000,001 – 3,200,000</option>
+                    <option value="3400000">3,200,001 – 3,400,000</option>
+                    <option value="3600000">3,400,001 – 3,600,000</option>
+                    <option value="3800000">3,600,001 – 3,800,000</option>
+                    <option value="4000000">3,800,001 – 4,000,000</option>
+                    <option value="4000001">4,000,001+</option>
+
+                </select>
+                <small 
+                    class="text-danger" 
+                    *ngIf="(formControl.down_payment.touched || submitted) && formControl.down_payment.errors?.required"
+                >Please choose one.
+                </small>
+            </div>
+            
+            <div class="form-group" ngbRadioGroup>
+                <h5>Desired Type of Rate</h5>
+                <label ngbButtonLabel class="normal-radio">
+                    <input type="radio" formControlName="rate_type" value="fixed" ngbButton> Fixed
+                </label>
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                <label ngbButtonLabel class="normal-radio">
+                    <input type="radio" formControlName="rate_type" value="adjustable" ngbButton> Adjustable
+                </label>
+            </div>
+            
+        </div>
+        <div class="col-md-12 text-center">
+            <p>
+                <button class="btn btn-danger btn-sm  submit-btn" type="submit">Next</button>
+            </p>
+            <p>
+                <button class="btn btn-sm  submit-btn" type="button" (click)="gotoStep7()">Go Back</button>
+            </p>
+        </div>
+    </div>
+</form>

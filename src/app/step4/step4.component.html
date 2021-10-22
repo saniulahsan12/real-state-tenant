@@ -1,0 +1,44 @@
+<h1 class="text-center">Your Credit Profile</h1>
+
+<form [formGroup]="step4Form" (ngSubmit)="submitStep4()">
+    <div class="row">
+        <div class="col-md-12 text-center" ngbRadioGroup>
+            <label ngbButtonLabel class="image-radio" [class]="activeClass === 'excellent' ? 'active' : ''">
+                <img class="property-image" src="{{imageBase}}/excellent.jpg" width="120">
+                <br>
+                <input type="radio" formControlName="credit_profile" value="excellent" ngbButton> Excellent 720+
+            </label>
+            <label ngbButtonLabel class="image-radio" [class]="activeClass === 'good' ? 'active' : ''">
+                <img class="property-image" src="{{imageBase}}/good.jpg" width="120">
+                <br>
+                <input type="radio" formControlName="credit_profile" value="good" ngbButton> Good 660-719
+            </label>
+            <label ngbButtonLabel class="image-radio" [class]="activeClass === 'avg' ? 'active' : ''">
+                <img class="property-image" src="{{imageBase}}/avg.jpg" width="120">
+                <br>
+                <input type="radio" formControlName="credit_profile" value="avg" ngbButton> Avg. 620-659
+            </label>
+            <label ngbButtonLabel class="image-radio" [class]="activeClass === 'below_avg' ? 'active' : ''">
+                <img class="property-image" src="{{imageBase}}/below_avg.jpg" width="120">
+                <br>
+                <input type="radio" formControlName="credit_profile" value="below_avg" ngbButton> Below Avg. 580-619
+            </label>
+            <label ngbButtonLabel class="image-radio" [class]="activeClass === 'poor' ? 'active' : ''">
+                <img class="property-image" src="{{imageBase}}/poor.jpg" width="120">
+                <br>
+                <input type="radio" formControlName="credit_profile" value="poor" ngbButton> Poor ≤ 579
+            </label>
+        </div>
+        <div class="col-md-12 text-center">
+            <p>
+                <small class="text-danger" *ngIf="submitted && !step4Form.valid">Please choose one</small>
+            </p>
+            <p>
+                <button class="btn btn-danger btn-sm submit-btn" type="submit">Next</button>
+            </p>
+            <p>
+                <button class="btn submit-btn" type="button" (click)="gotoStep3()">Go Back</button>
+            </p>
+        </div>
+    </div>
+</form>

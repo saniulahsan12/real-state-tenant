@@ -1,0 +1,26 @@
+<h1 class="text-center">Type of Loan</h1>
+
+<form [formGroup]="step1Form" (ngSubmit)="submitStep1()">
+    <div class="row">
+        <div class="col-md-12 text-center" ngbRadioGroup>
+            <label ngbButtonLabel class="image-radio" [class]="activeClass === 'home_refinance' ? 'active' : ''">
+                <img class="property-image" src="{{imageBase}}/home_refinance.jpg" width="120">
+                <br>
+                <input type="radio" formControlName="type_of_loan" value="home_refinance" ngbButton> Home Refinance
+            </label>
+            <label ngbButtonLabel class="image-radio" [class]="activeClass === 'home_purchase' ? 'active' : ''">
+                <img class="property-image" src="{{imageBase}}/home_purchase.jpg" width="120">
+                <br>
+                <input type="radio" formControlName="type_of_loan" value="home_purchase" ngbButton> Home Purchase
+            </label>
+        </div>
+        <div class="col-md-12 text-center">
+            <p>
+                <small class="text-danger" *ngIf="submitted && !step1Form.valid">Please choose one</small>
+            </p>
+            <div class="btn-group">
+                <button class="btn btn-danger btn-sm  submit-btn" type="submit">Next</button>
+            </div>
+        </div>
+    </div>
+</form>

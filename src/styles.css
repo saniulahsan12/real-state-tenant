@@ -1,0 +1,99 @@
+.real-state-tenant-survey {
+  font-family: 'Montserrat' !important;
+}
+
+.real-state-tenant-survey h1,
+.real-state-tenant-survey h2,
+.real-state-tenant-survey h3,
+.real-state-tenant-survey h4,
+.real-state-tenant-survey h5,
+.real-state-tenant-survey h6 {
+  font-weight: bold;
+  font-family: 'Montserrat' !important;
+}
+
+.real-state-tenant-survey .progress-bar {
+  background-color: #510558 !important;
+}
+
+.real-state-tenant-survey .progress-percentage {
+  color: #510558;
+}
+
+.real-state-tenant-survey .image-radio input[type=checkbox],
+.real-state-tenant-survey .image-radio input[type=radio] {
+  display: none;
+}
+
+.real-state-tenant-survey .image-radio {
+  text-align: center;
+  font-family: 'Montserrat' !important;
+}
+
+.real-state-tenant-survey .property-image {
+  transition: transform 0.2s;
+  border: 3px solid #510558;
+  margin: 10px;
+  border-radius: 4px;
+  padding: 5px;
+  font-weight: bold;
+  font-family: 'Montserrat' !important;
+}
+
+.real-state-tenant-survey .property-image:hover {
+  transform: scale(0.8);
+}
+
+.real-state-tenant-survey .image-radio {
+  border-radius: 10px;
+  padding: 10px;
+  font-weight: bold;
+  font-family: 'Montserrat' !important;
+  font-size: 14px;
+}
+
+.real-state-tenant-survey .image-radio.active {
+  background: #510558;
+  color: white;
+}
+
+.real-state-tenant-survey .submit-btn {
+  font-size: 18px;
+  padding: 6px 16px !important;
+  font-family: 'Montserrat' !important;
+}
+
+.real-state-tenant-survey small.text-danger {
+  font-weight: bold;
+  font-family: 'Montserrat' !important;
+}
+
+.real-state-tenant-survey .center-block {
+  margin: 0 auto;
+}
+
+.real-state-tenant-survey input.form-control,
+.real-state-tenant-survey select.form-control,
+.real-state-tenant-survey .normal-radio {
+  font-size: 18px;
+  border-radius: 5px;
+  font-family: 'Montserrat' !important;
+}
+
+.real-state-tenant-survey input.form-control.is-invalid,
+.real-state-tenant-survey select.form-control.is-invalid {
+  background-color: #faccc4;
+  border-color: #b5121b;
+}
+
+.real-state-tenant-survey .thank-you-wrapper {
+  margin-bottom: 30px 0;
+}
+
+.real-state-tenant-survey .tenant-center-spinner,
+.real-state-tenant-survey .spinner-border {
+  margin: 0 auto;
+  display: table;
+  width: 20px;
+  height: 20px;
+}

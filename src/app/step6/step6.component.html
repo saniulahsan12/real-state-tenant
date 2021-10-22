@@ -1,0 +1,44 @@
+<form [formGroup]="step6Form" (ngSubmit)="submitStep6()">
+    <div class="row">
+        <div class="col-md-6 text-center center-block">
+            <div class="form-group">
+                <h5>First Name</h5>
+                <input 
+                    type="text" 
+                    class="form-control" 
+                    formControlName="first_name" 
+                    placeholder="Michelle"
+                    [class.is-invalid]="(formControl.first_name.touched || submitted) && formControl.first_name.errors?.required"
+                >
+                <small 
+                    class="text-danger" 
+                    *ngIf="(formControl.first_name.touched || submitted) && formControl.first_name.errors?.required"
+                >Please enter your first name.
+                </small>
+            </div>
+            <div class="form-group">
+                <h5>Last Name</h5>
+                <input 
+                    type="text" 
+                    class="form-control" 
+                    formControlName="last_name" 
+                    placeholder="George"
+                    [class.is-invalid]="(formControl.last_name.touched || submitted) && formControl.last_name.errors?.required"
+                >
+                <small 
+                    class="text-danger" 
+                    *ngIf="(formControl.last_name.touched || submitted) && formControl.last_name.errors?.required"
+                >Please enter your last name.
+                </small>
+            </div>
+        </div>
+        <div class="col-md-12 text-center">
+            <p>
+                <button class="btn btn-danger btn-sm  submit-btn" type="submit">Next</button>
+            </p>
+            <p>
+                <button class="btn btn-sm  submit-btn" type="button" (click)="gotoStep5()">Go Back</button>
+            </p>
+        </div>
+    </div>
+</form>

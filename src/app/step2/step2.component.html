@@ -1,0 +1,39 @@
+<h1 class="text-center">Home Description</h1>
+
+<form [formGroup]="step2Form" (ngSubmit)="submitStep2()">
+    <div class="row">
+        <div class="col-md-12 text-center" ngbRadioGroup>
+            <label ngbButtonLabel class="image-radio" [class]="activeClass === 'single_family' ? 'active' : ''">
+                <img class="property-image" src="{{imageBase}}/single_family.jpg" width="120">
+                <br>
+                <input type="radio" formControlName="home_description" value="single_family" ngbButton> Single-Family
+            </label>
+            <label ngbButtonLabel class="image-radio" [class]="activeClass === 'multifamily' ? 'active' : ''">
+                <img class="property-image" src="{{imageBase}}/multifamily.jpg" width="120">
+                <br>
+                <input type="radio" formControlName="home_description" value="multifamily" ngbButton> Multifamily
+            </label>
+            <label ngbButtonLabel class="image-radio" [class]="activeClass === 'condominium' ? 'active' : ''">
+                <img class="property-image" src="{{imageBase}}/condominium.jpg" width="120">
+                <br>
+                <input type="radio" formControlName="home_description" value="condominium" ngbButton> Condominium
+            </label>
+            <label ngbButtonLabel class="image-radio" [class]="activeClass === 'townhouse' ? 'active' : ''">
+                <img class="property-image" src="{{imageBase}}/townhouse.jpg" width="120">
+                <br>
+                <input type="radio" formControlName="home_description" value="townhouse" ngbButton> Townhouse
+            </label>
+        </div>
+        <div class="col-md-12 text-center">
+            <p>
+                <small class="text-danger" *ngIf="submitted && !step2Form.valid">Please choose one</small>
+            </p>
+            <p>
+                <button class="btn btn-danger btn-sm  submit-btn" type="submit">Next</button>
+            </p>
+            <p>
+                <button class="btn btn-sm  submit-btn" type="button" (click)="gotoStep1()">Go Back</button>
+            </p>
+        </div>
+    </div>
+</form>

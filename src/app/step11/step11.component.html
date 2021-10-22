@@ -1,0 +1,12 @@
+<div class="row">
+    <div class="col-md-12 text-left center-block">
+        <span *ngIf="loading">
+            <div class="spinner-border text-warning tenant-center-spinner" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </span>
+        <section class="thank-you-wrapper" *ngFor="let page of thankYouContent">
+            <div [innerHTML]="page.content"></div>
+        </section>
+    </div>
+</div>

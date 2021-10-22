@@ -1,0 +1,34 @@
+<h1 class="text-center">Property Use</h1>
+
+<form [formGroup]="step3Form" (ngSubmit)="submitStep3()">
+    <div class="row">
+        <div class="col-md-12 text-center" ngbRadioGroup>
+            <label ngbButtonLabel class="image-radio" [class]="activeClass === 'primary_residence' ? 'active' : ''">
+                <img class="property-image" src="{{imageBase}}/primary_residence.jpg" width="120">
+                <br>
+                <input type="radio" formControlName="property_use" value="primary_residence" ngbButton> Primary Residence
+            </label>
+            <label ngbButtonLabel class="image-radio" [class]="activeClass === 'secondary_home' ? 'active' : ''">
+                <img class="property-image" src="{{imageBase}}/secondary_home.jpg" width="120">
+                <br>
+                <input type="radio" formControlName="property_use" value="secondary_home" ngbButton> Secondary Home
+            </label>
+            <label ngbButtonLabel class="image-radio" [class]="activeClass === 'investment_property' ? 'active' : ''">
+                <img class="property-image" src="{{imageBase}}/investment_property.jpg" width="120">
+                <br>
+                <input type="radio" formControlName="property_use" value="investment_property" ngbButton> Investment Property
+            </label>
+        </div>
+        <div class="col-md-12 text-center">
+            <p>
+                <small class="text-danger" *ngIf="submitted && !step3Form.valid">Please choose one</small>
+            </p>
+            <p>
+                <button class="btn btn-danger btn-sm  submit-btn" type="submit">Next</button>
+            </p>
+            <p>
+                <button class="btn btn-sm  submit-btn" type="button" (click)="gotoStep2()">Go Back</button>
+            </p>
+        </div>
+    </div>
+</form>
